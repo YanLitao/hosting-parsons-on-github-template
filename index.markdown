@@ -24,10 +24,11 @@ title: "Arrange Code Snippets by Execution Flow"
 <div id="p1-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="p1-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="p1-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="p1-feedbackLink" value="Check my answer" type="button" /> 
+    <input id="p1-newInstanceLink" value="Reset problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
+let p1Stats = 0;
 (function(){
   var initial = "mount(modal: Modal, props: ManagedModalProps): void {\n" +
     "containerInfo.restore = handleContainer(containerInfo, props);\n" +
@@ -59,6 +60,8 @@ title: "Arrange Code Snippets by Execution Flow"
   $("#p1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
+      p1Stats += 1;
+      console.log("p1", p1Stats);   
   }); 
 })(); 
 </script>
@@ -69,10 +72,11 @@ title: "Arrange Code Snippets by Execution Flow"
 <div id="p2-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="p2-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="p2-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="p2-feedbackLink" value="Check my answer" type="button" /> 
+    <input id="p2-newInstanceLink" value="Reset problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
+let p2Stats = 0;
 (function(){
   var initial = "function FocusTrap(props: FocusTrapProps): React.JSX.Element { \n" +
     "const nodeToRestore = React.useRef&lt;EventTarget | null&gt;(null); \n" +
@@ -104,6 +108,8 @@ title: "Arrange Code Snippets by Execution Flow"
   $("#p2-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
+      p2Stats += 1;
+      console.log("p2", p2Stats); 
   }); 
 })(); 
 </script>
