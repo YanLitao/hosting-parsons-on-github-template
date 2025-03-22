@@ -25,10 +25,12 @@ title: "Arrange Code Snippets by Execution Flow"
 <div style="clear:both;"></div> 
 <p> 
     <input id="p1-feedbackLink" value="Check my answer" type="button" /> 
-    <input id="p1-newInstanceLink" value="Reset problem" type="button" /> 
+    <input id="p1-start" value="Start problem" type="button" />
+    <input id="p1-end" value="End problem" type="button" />
 </p> 
 <script type="text/javascript"> 
 let p1Stats = 0;
+let totalTimeP1;
 (function(){
   var initial = "mount(modal: Modal, props: ManagedModalProps): void {\n" +
     "containerInfo.restore = handleContainer(containerInfo, props);\n" +
@@ -53,15 +55,20 @@ let p1Stats = 0;
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p1-newInstanceLink").click(function(event){ 
+  $("#p1-start").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.shuffleLines(); 
+      totalTimeP1 = Date.now();
+  }); 
+  $("#p1-end").click(function(event){ 
+      event.preventDefault(); 
+      totalTimeP1 = Date.now() - totalTimeP1;
+      console.log("p1-time: ", totalTimeP1);
   }); 
   $("#p1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
       p1Stats += 1;
-      console.log("p1", p1Stats);   
+      console.log("p1: ", p1Stats);   
   }); 
 })(); 
 </script>
@@ -73,10 +80,12 @@ let p1Stats = 0;
 <div style="clear:both;"></div> 
 <p> 
     <input id="p2-feedbackLink" value="Check my answer" type="button" /> 
-    <input id="p2-newInstanceLink" value="Reset problem" type="button" /> 
+    <input id="p2-start" value="Start problem" type="button" />
+    <input id="p2-end" value="End problem" type="button" />
 </p> 
 <script type="text/javascript"> 
 let p2Stats = 0;
+let totalTimeP2;
 (function(){
   var initial = "function FocusTrap(props: FocusTrapProps): React.JSX.Element { \n" +
     "const nodeToRestore = React.useRef&lt;EventTarget | null&gt;(null); \n" +
@@ -101,9 +110,14 @@ let p2Stats = 0;
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p2-newInstanceLink").click(function(event){ 
+  $("#p2-start").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.shuffleLines(); 
+      totalTimeP2 = Date.now();
+  }); 
+  $("#p2-end").click(function(event){ 
+      event.preventDefault(); 
+      totalTimeP2 = Date.now() - totalTimeP2;
+      console.log("p2-time: ", totalTimeP2);
   }); 
   $("#p2-feedbackLink").click(function(event){ 
       event.preventDefault(); 
