@@ -20,12 +20,12 @@ title: "Arrange Code Snippets by Execution Flow"
 
 ## Task A: How do the provided props prevent scrolling when a modal is mounted?
 
-<div id="sortableTrash" class="sortable-code"></div> 
-<div id="sortable" class="sortable-code"></div> 
+<div id="p1-sortableTrash" class="sortable-code"></div> 
+<div id="p1-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="p1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p1-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
@@ -40,7 +40,7 @@ title: "Arrange Code Snippets by Execution Flow"
     "restoreStyle.forEach(({ value, scrollElement, property }) =&gt; { #distractor\n" +
     "scrollElement.style.setProperty(property, value); #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "sortable",
+    "sortableId": "p1-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -48,15 +48,15 @@ title: "Arrange Code Snippets by Execution Flow"
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "sortableTrash"
+    "trashId": "p1-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#newInstanceLink").click(function(event){ 
+  $("#p1-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#feedbackLink").click(function(event){ 
+  $("#p1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
