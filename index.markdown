@@ -20,7 +20,7 @@ title: "Arrange Code Snippets by Execution Flow"
 
 ## Task A: How do the provided props prevent scrolling when a modal is mounted?
 
-<div id="p1-sortableTrash" class="sortable-code"></div> 
+<div id="p1-sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="p1-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
@@ -58,6 +58,7 @@ let totalTimeP1;
   $("#p1-start").click(function(event){ 
       event.preventDefault(); 
       totalTimeP1 = Date.now();
+      $("#p1-sortableTrash").show();
   }); 
   $("#p1-end").click(function(event){ 
       event.preventDefault(); 
@@ -75,7 +76,7 @@ let totalTimeP1;
 
 ## Task B: How does the FocusTrap component handle focus restoration when it is closed?
 
-<div id="p2-sortableTrash" class="sortable-code"></div> 
+<div id="p2-sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="p2-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
@@ -113,6 +114,7 @@ let totalTimeP2;
   $("#p2-start").click(function(event){ 
       event.preventDefault(); 
       totalTimeP2 = Date.now();
+      $("#p2-sortableTrash").show();
   }); 
   $("#p2-end").click(function(event){ 
       event.preventDefault(); 
