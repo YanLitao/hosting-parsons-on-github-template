@@ -22,6 +22,7 @@ title: "Arrange Code Snippets by Execution Flow"
 
 <div id="p1-sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="p1-sortable" class="sortable-code"></div> 
+<div id="p1-log" style="display:none"></div> 
 <div style="clear:both;"></div> 
 <p> 
     <input id="p1-feedbackLink" value="Check my answer" type="button" /> 
@@ -63,7 +64,10 @@ let totalTimeP1;
   $("#p1-end").click(function(event){ 
       event.preventDefault(); 
       totalTimeP1 = Date.now() - totalTimeP1;
-      console.log("p1-time: ", totalTimeP1/1000);
+      const seconds = (totalTimeP1 / 1000).toFixed(2);
+      console.log("p1-time: ", seconds);
+      $("#p1-log").text(`Task A — Total Time: ${seconds}s, Feedback Clicks: ${p1Stats}`);
+      $("#p1-log").show();  
   }); 
   $("#p1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
@@ -78,6 +82,7 @@ let totalTimeP1;
 
 <div id="p2-sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="p2-sortable" class="sortable-code"></div> 
+<div id="p2-log" style="display:none"></div> 
 <div style="clear:both;"></div> 
 <p> 
     <input id="p2-feedbackLink" value="Check my answer" type="button" /> 
@@ -119,7 +124,10 @@ let totalTimeP2;
   $("#p2-end").click(function(event){ 
       event.preventDefault(); 
       totalTimeP2 = Date.now() - totalTimeP2;
-      console.log("p2-time: ", totalTimeP2/1000);
+      const seconds = (totalTimeP2 / 1000).toFixed(2);
+      console.log("p2-time: ", seconds);
+      $("#p2-log").text(`Task B — Total Time: ${seconds}s, Feedback Clicks: ${p2Stats}`);
+      $("#p2-log").show();
   }); 
   $("#p2-feedbackLink").click(function(event){ 
       event.preventDefault(); 
