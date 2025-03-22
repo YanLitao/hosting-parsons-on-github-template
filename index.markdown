@@ -1,247 +1,109 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: default
-title: Multiple Parson's Problems on One Page
+title: "Arrange Code Snippets by Execution Flow"
 ---
-# Parsons Practice
+## Task Instructions
 
-## Parsons 1 (Line Based Grader)
-Re-arrange the blocks below so they print out "Hello World!"
+1. **Identify Relevant Code**  
+   - **Select only the code snippets** that contribute to answering the question.
+   - Ignore any snippets that do not affect the actual execution flow.
 
-<div id="p1-sortableTrash" class="sortable-code"></div>
-<div id="p1-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p1-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p1-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function() {
-  var initial = "print(\"Hello\")\n" +
-    "print(\" \")\n" +
-    "print(\"World\")\n" +
-    "print(\"!\")";
+2. **Arrange in Execution Order**  
+   - **Drag and drop the selected snippets** to reorder them so they reflect the true execution order.
+   - Ensure that the sequence mirrors the flow of the underlying program logic.
+
+3. **Ignore Distractors**  
+   - Some snippets may appear relevant but are not part of the actual execution.  
+   - These distractors should be **excluded** from your final solution.
+
+---
+
+## Task A: How do the provided props prevent scrolling when a modal is mounted?
+
+<div id="sortableTrash" class="sortable-code"></div> 
+<div id="sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "mount(modal: Modal, props: ManagedModalProps): void {\n" +
+    "containerInfo.restore = handleContainer(containerInfo, props);\n" +
+    "function handleContainer(containerInfo: Container, props: ManagedModalProps) {\n" +
+    "if (!props.disableScrollLock) {\n" +
+    "scrollContainer.style.overflow = &#039;hidden&#039;;\n" +
+    "const restoreStyle = ownerDocument(container).querySelectorAll(&#039;.mui-fixed&#039;); #distractor\n" +
+    "function setProperty(property: string, value: string | null, priority?: string) { #distractor\n" +
+    "if (scrollElement.getAttribute(&#039;overflow&#039;) === &#039;auto&#039;) { #distractor\n" +
+    "restoreStyle.forEach(({ value, scrollElement, property }) =&gt; { #distractor\n" +
+    "scrollElement.style.setProperty(property, value); #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p1-sortable",
+    "sortableId": "sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": false,
     "x_indent": 50,
     "lang": "en",
-    "trashId": "p1-sortableTrash"
+    "show_feedback": true,
+    "trashId": "sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p1-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p1-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
+  $("#newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
 </script>
 
+## Task B: How does the FocusTrap component handle focus restoration when it is closed?
 
-## Parsons 2 (Variable Check Grader)
-Construct a program that swaps the values of variables <code>x</code> and <code>y</code> using the helper variable <code>tmp</code>. You can change the names of the variables (<span class="jsparson-toggle"></span>) by clicking them.
-
-<div id="p2-sortableTrash" class="sortable-code"></div>
-<div id="p2-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p2-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p2-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
+<div id="sortableTrash" class="sortable-code"></div> 
+<div id="sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
 (function(){
-  var initial = "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
-    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
-    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$";
+  var initial = "function FocusTrap(props: FocusTrapProps): React.JSX.Element { \n" +
+    "const nodeToRestore = React.useRef&lt;EventTarget | null&gt;(null); \n" +
+    "if (nodeToRestore.current &amp;&amp; (nodeToRestore.current as HTMLElement).focus) { \n" +
+    "(nodeToRestore.current as HTMLElement).focus(); \n" +
+    "let tabbable: ReadonlyArray&lt;string&gt; | HTMLElement[] = []; #distractor\n" +
+    "const rootRef = React.useRef&lt;HTMLElement&gt;(null); #distractor\n" +
+    "tabbable = getTabbable(rootRef.current!); #distractor\n" +
+    "const lastKeydown = React.useRef&lt;KeyboardEvent | null&gt;(null); #distractor\n" +
+    "lastKeydown.current?.shiftKey &amp;&amp; lastKeydown.current?.key === &#039;Tab&#039;, #distractor\n" +
+    "if (nodeTabIndex === -1 || !isNodeMatchingSelectorFocusable(node as HTMLInputElement)) { #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p2-sortable",
+    "sortableId": "sortable",
     "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.VariableCheckGrader,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
-    "can_indent": true,
+    "can_indent": false,
     "x_indent": 50,
     "lang": "en",
-    "trashId": "p2-sortableTrash",
-    "vartests": [
-        {
-            "message": "Testing with initial variable values x = 3 and y = 4",
-            "initcode": "x = 3\ny = 4",
-            "code": "",
-            "variables": {}
-        },
-        {
-            "message": "Testing with initial variable values x = 0 and y = 2",
-            "initcode": "x = 0\ny = 2",
-            "code": "",
-            "variables": {}
-        }
-    ]
+    "show_feedback": true,
+    "trashId": "sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p2-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p2-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
- });
-})();
+  $("#newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
 </script>
-
-## Parsons 3 (Unit Test Grader)
-Your task is to construct a function which returns the index of the largest element in the array.
-
-<div id="p3-sortableTrash" class="sortable-code"></div>
-<div id="p3-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p3-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p3-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function(){
-  var initial = "def maxindex(arg):\n" +
-    " ans = 0\n" +
-    " for i in range(len(arg)):\n" +
-    " if arg[i] > arg[ans]:\n" +
-    " ans = i\n" +
-    " while True:\n" +
-    "pass\n" +
-    " return ans";
-  var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p3-sortable",
-    "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.UnitTestGrader,
-    "exec_limit": 2500,
-    "can_indent": true,
-    "x_indent": 50,
-    "lang": "en",
-    "trashId": "p3-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(,,)\n_test_result = myTests().main()"
-  });
-  parsonsPuzzle.init(initial);
-  parsonsPuzzle.shuffleLines();
-  $("#p3-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p3-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
-</script>
-
-## Parsons 4 (Language Translation Grader)
-Print out "I am a Java program" three times using a for loop.
-
-<div id="p4-sortableTrash" class="sortable-code"></div>
-<div id="p4-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p4-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p4-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function(){
-  var initial = "for (int i=0;i<3;i++) {\n" +
-    "System.out.print(\\\"I \\\");\n" +
-    "System.out.print(\\\"am \\\");\n" +
-    "System.out.print(\\\"a Java program \\\");\n" +
-    "}";
-  var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p4-sortable",
-    "max_wrong_lines": 1,
-    "grader": ParsonsWidget._graders.LanguageTranslationGrader,
-    "exec_limit": 2500,
-    "can_indent": true,
-    "x_indent": 50,
-    "lang": "en",
-    "executable_code": "for x in range(3):\n    output += 'I '\n    output += 'am '\n    output += 'a Java program '\npass",
-    "programmingLang": "java",
-    "vartests": [
-        {
-            "message": "Testing...",
-            "initcode": "output = ''",
-            "code": "",
-            "variables": {
-                "output": "I am a Java program I am a Java program I am a Java program "
-            }
-        }
-    ]
-  });
-  parsonsPuzzle.init(initial);
-  parsonsPuzzle.shuffleLines();
-  $("#p4-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p4-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-   });
-})();
-</script>
-
-
-## Parsons 5 (Turtle Grader)
-Construct a program by dragging&amp;dropping and reordering lines. The constructed program should draw a triangle like shown below.
-
-<div id="p5-sortableTrash" class="sortable-code"></div>
-<div id="p5-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p5-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p5-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function(){
-  var initial = "REPEAT 3 TIMES\n" +
-    "  forward(100)\n" +
-    "  left(120)\n" +
-    "ENDREPEAT";
-  var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p5-sortable",
-    "max_wrong_lines": 1,
-    "grader": ParsonsWidget._graders.TurtleGrader,
-    "exec_limit": 2500,
-    "can_indent": true,
-    "x_indent": 50,
-    "lang": "en",
-    "trashId": "p5-sortableTrash",
-    "executable_code": "for i in range(0,3):\nmyTurtle.forward(100)\nmyTurtle.left(120)\npass",
-    "programmingLang": "pseudo",
-    "turtleModelCode": "modelTurtle.forward(100)\nmodelTurtle.left(120)\nmodelTurtle.forward(100)\nmodelTurtle.left(120)\nmodelTurtle.forward(100)\nmodelTurtle.left(120)",
-  });
-  parsonsPuzzle.init(initial);
-  parsonsPuzzle.shuffleLines();
-  $("#p5-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p5-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
-</script>
-
-### Implementation Notes
-
-When you host multiple Parson's problems on a single markdown page, you need to add a unique prefix. You can easily do this in the Codio generator by typing a unique prefix into the "Prefix" textbox and pressing Enter/Return. Then you can simply copy-paste like normal.
-
-If want each problem to be it's own page, you can use relative path links at the bottom of each of your markdown pages as seen below. If you want students to be able to return to previous problems in this format, consider adding previous links or link to a table of contents like page.
-
-### Example Next Link
-[Next](./parsons/example1.html)
