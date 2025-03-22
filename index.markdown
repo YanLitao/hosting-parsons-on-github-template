@@ -62,7 +62,7 @@ let totalTimeP1;
   $("#p1-end").click(function(event){ 
       event.preventDefault(); 
       totalTimeP1 = Date.now() - totalTimeP1;
-      console.log("p1-time: ", totalTimeP1);
+      console.log("p1-time: ", totalTimeP1/1000);
   }); 
   $("#p1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
@@ -117,7 +117,7 @@ let totalTimeP2;
   $("#p2-end").click(function(event){ 
       event.preventDefault(); 
       totalTimeP2 = Date.now() - totalTimeP2;
-      console.log("p2-time: ", totalTimeP2);
+      console.log("p2-time: ", totalTimeP2/1000);
   }); 
   $("#p2-feedbackLink").click(function(event){ 
       event.preventDefault(); 
