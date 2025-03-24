@@ -52,10 +52,10 @@ In this task, you will organize code snippets to reconstruct the execution flow 
 </p> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "console.log(message);\n" +
-    "const message = &quot;Hello, world!&quot;;\n" +
-    "function showMessage() {\n" +
-    "const sum = a + b #distractor";
+  var initial = "completed: boolean;\n" +
+    "{ id: 1, title: "Write report", completed: true },\n" +
+    "return tasks.filter(task => task.completed).length;\n" +
+    "function generateSummary(completedCount: number, totalCount: number): string { #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "sortable",
     "max_wrong_lines": 10,
