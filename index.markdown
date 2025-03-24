@@ -84,7 +84,8 @@ In this task, you will organize code snippets to reconstruct the execution flow 
 </script>
 
 
-## Task A: How do the provided props prevent scrolling when a modal is mounted?
+## Task A: Arrange the code snippets in the order they are executed to answer: 
+How do the provided props prevent scrolling when a modal is mounted?
 
 <div id="p1-sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="p1-sortable" class="sortable-code"></div>
@@ -145,7 +146,8 @@ let totalTimeP1;
 })(); 
 </script>
 
-## Task B: How does the FocusTrap component handle focus restoration when it is closed?
+## Task B: Arrange the code snippets in the order they are executed to answer:
+How does the FocusTrap component handle focus restoration when it is closed? 
 
 <div id="p2-sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="p2-sortable" class="sortable-code"></div>
@@ -165,12 +167,12 @@ let totalTimeP2;
     "const nodeToRestore = React.useRef&lt;EventTarget | null&gt;(null); \n" +
     "if (nodeToRestore.current &amp;&amp; (nodeToRestore.current as HTMLElement).focus) { \n" +
     "(nodeToRestore.current as HTMLElement).focus(); \n" +
-    "let tabbable: ReadonlyArray&lt;string&gt; | HTMLElement[] = []; #distractor\n" +
-    "const rootRef = React.useRef&lt;HTMLElement&gt;(null); #distractor\n" +
-    "tabbable = getTabbable(rootRef.current!); #distractor\n" +
-    "const lastKeydown = React.useRef&lt;KeyboardEvent | null&gt;(null); #distractor\n" +
-    "lastKeydown.current?.shiftKey &amp;&amp; lastKeydown.current?.key === &#039;Tab&#039;, #distractor\n" +
-    "if (nodeTabIndex === -1 || !isNodeMatchingSelectorFocusable(node as HTMLInputElement)) { #distractor";
+    "const isRestorable = !!nodeToRestore.current && nodeToRestore.current.nodeType === 1; #distractor\n" +
+    "nodeToRestore.current?.removeAttribute('tabindex'); #distractor\n" +
+    "const tag = (nodeToRestore.current as HTMLElement)?.tagName; #distractor\n" +
+    "if ((nodeToRestore.current as HTMLElement)?.tabIndex === -1) return; #distractor\n" +
+    "(nodeToRestore.current as HTMLElement).blur?.(); #distractor\n" +
+    "const tabbableElements = getTabbable(nodeToRestore.current as HTMLElement); #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "p2-sortable",
     "max_wrong_lines": 10,
