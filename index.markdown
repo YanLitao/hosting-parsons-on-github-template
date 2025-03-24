@@ -77,7 +77,7 @@ In this task, you will organize code snippets to reconstruct the execution flow 
   }); 
   $("#feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
+      console.log(parsonsPuzzle.getFeedback());
   });
 })(); 
 </script>
