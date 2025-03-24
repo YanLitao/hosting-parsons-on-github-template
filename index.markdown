@@ -40,6 +40,7 @@ In this task, you will organize code snippets to reconstruct the execution flow 
 ---
 
 ## Practice
+
 <div id="sortableTrash" class="sortable-code" style="display:none></div> 
 <div id="sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
