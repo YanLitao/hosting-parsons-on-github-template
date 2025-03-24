@@ -43,6 +43,7 @@ In this task, you will organize code snippets to reconstruct the execution flow 
 
 <div id="sortableTrash" class="sortable-code" style="display:none"></div> 
 <div id="sortable" class="sortable-code"></div> 
+<div id="feedback" class="feedback"></div> 
 <div style="clear:both;"></div> 
 <p> 
     <input id="start" value="Start problem" type="button" />
@@ -77,7 +78,7 @@ In this task, you will organize code snippets to reconstruct the execution flow 
   }); 
   $("#feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      console.log(parsonsPuzzle.getFeedback());
+      $("#feedback").text(parsonsPuzzle.getFeedback()[0]);
   });
 })(); 
 </script>
@@ -86,7 +87,8 @@ In this task, you will organize code snippets to reconstruct the execution flow 
 ## Task A: How do the provided props prevent scrolling when a modal is mounted?
 
 <div id="p1-sortableTrash" class="sortable-code" style="display:none"></div> 
-<div id="p1-sortable" class="sortable-code"></div> 
+<div id="p1-sortable" class="sortable-code"></div>
+<div id="p1-feedback" class="feedback"></div> 
 <div id="p1-log" style="display:none"></div> 
 <div style="clear:both;"></div> 
 <p> 
@@ -136,7 +138,7 @@ let totalTimeP1;
   }); 
   $("#p1-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
+      $("#p1-feedback").text(parsonsPuzzle.getFeedback()[0]);
       p1Stats += 1;
       console.log("p1: ", p1Stats);   
   }); 
@@ -146,7 +148,8 @@ let totalTimeP1;
 ## Task B: How does the FocusTrap component handle focus restoration when it is closed?
 
 <div id="p2-sortableTrash" class="sortable-code" style="display:none"></div> 
-<div id="p2-sortable" class="sortable-code"></div> 
+<div id="p2-sortable" class="sortable-code"></div>
+<div id="p2-feedback" class="feedback"></div> 
 <div id="p2-log" style="display:none"></div> 
 <div style="clear:both;"></div> 
 <p> 
@@ -196,7 +199,7 @@ let totalTimeP2;
   }); 
   $("#p2-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
+      $("#p2-feedback").text(parsonsPuzzle.getFeedback()[0]);
       p2Stats += 1;
       console.log("p2", p2Stats); 
   }); 
