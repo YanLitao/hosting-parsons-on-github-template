@@ -169,9 +169,9 @@ let totalTimeP2;
     "(nodeToRestore.current as HTMLElement).focus(); \n" +
     "const isRestorable = !!nodeToRestore.current && nodeToRestore.current.nodeType === 1; #distractor\n" +
     "nodeToRestore.current?.removeAttribute('tabindex'); #distractor\n" +
-    "const tag = (nodeToRestore.current as HTMLElement)?.tagName; #distractor\n" +
-    "if ((nodeToRestore.current as HTMLElement)?.tabIndex === -1) return; #distractor\n" +
-    "(nodeToRestore.current as HTMLElement).blur?.(); #distractor\n" +
+    "(nodeToRestore.current as HTMLElement)?.setAttribute('tabindex', '-1'); #distractor\n" +
+    "if ((nodeToRestore.current as HTMLElement)?.tabIndex < 0) return; #distractor\n" +
+    "(nodeToRestore.current as HTMLElement)?.blur(); #distractor\n" +
     "const tabbableElements = getTabbable(nodeToRestore.current as HTMLElement); #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "p2-sortable",
